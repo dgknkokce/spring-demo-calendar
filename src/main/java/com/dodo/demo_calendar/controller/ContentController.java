@@ -2,6 +2,7 @@ package com.dodo.demo_calendar.controller;
 
 import com.dodo.demo_calendar.model.Content;
 import com.dodo.demo_calendar.repository.ContentCollectionRepository;
+import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
@@ -32,7 +33,7 @@ public class ContentController {
 
     @ResponseStatus(HttpStatus.CREATED)
     @PostMapping("")
-    public void create(@RequestBody Content content){
+    public void create(@Valid @RequestBody Content content){
         repository.save(content);
     }
 
